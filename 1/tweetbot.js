@@ -8,17 +8,19 @@ app.get('/', function(req, res){
 app.listen(process.env.PORT || 3030);
 
 var T = new Twit({
-    consumer_key:         'ARqyBZjyUxpLFRg2IvbEeYTdS',
-    consumer_secret:      '6MpXkyemh7sAc3ENqi7bxOrIRTNo8KyD0OCuJJqMtcPtjUOrt2',
-    access_token:         '580185248-b1DMwS2pLRyHhnt75DLYrXtKBmHBW1XSul59wfSn',
-    access_token_secret:  '5hgb7ktTph90LIvXhDosbSQLtozBJX7ynV61c0jrr5Mey',
+    consumer_key:         '',
+    consumer_secret:      '',
+    access_token:         '',
+    access_token_secret:  '',
     timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
     strictSSL:            true,     // optional - requires SSL certificates to be valid.
   })
 
   //
-//  tweet 'hello world!'
 
+var getQuoteURL = 'http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en&key=457653';
+
+//  tweet 'hello world!'
 T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
     console.log(data)
   })
