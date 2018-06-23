@@ -13,4 +13,5 @@ The tweet bot is able to send two types of tweets periodically.
 ## Technology
 - JavaScript
 - Node.js
-
+- Twit
+- API
