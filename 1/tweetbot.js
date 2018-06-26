@@ -37,10 +37,14 @@ function postQuote() {
           });
         });
 }
-/*
-T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
-    console.log(data)
-  })
-*/
-postQuote();
+
+//Send a tweet every 1 minute
+setInterval(function() {
+    try {
+      postQuote();
+    }
+   catch (e) {
+      console.log(e);
+    }
+  },60000);
 
