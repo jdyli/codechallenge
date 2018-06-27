@@ -3,7 +3,7 @@
 The tweet bot is able to send two types of tweets periodically. 
 
 1. Inspirational quotes
-2. Stock update of one particular firm (maybe even comparing it with the previous tweet?)
+2. Stock update of one particular firm, in this case of TOMTOM
 
 ## Learning goal
 - How to work with API
@@ -13,5 +13,6 @@ The tweet bot is able to send two types of tweets periodically.
 ## Technology
 - JavaScript
 - Node.js
-- Twit
-- API
+- Node-rest-client
+- Express
+- Quandl API

@@ -19,7 +19,8 @@ var T = new Twit({
   })
 
 
-var getQuoteURL = 'http://api.forismatic.com/api/1.0/?method=getQuote&format=text&lang=en&key=457653';  
+var getQuoteURL = '';  
+var getStockURL = '';
 
 function postQuote() {
     restclient.get(
@@ -27,7 +28,7 @@ function postQuote() {
         function(data, response) {
           
           var dataConversion = data.toString('utf8');
-          T.post('statuses/update', { status: dataConversion}, function(err, data, response) {
+          T.post('statuses/update', {status: dataConversion}, function(err, data, response) {
             try {
                 console.log(data);
             }
@@ -37,10 +38,35 @@ function postQuote() {
           });
         });
 }
-/*
-T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
-    console.log(data)
-  })
-*/
-postQuote();
 
+function postStock() {
+  restclient.get(
+    getStockURL,
+    function(data, response) {
+  
+      var stockArray = data.dataset_data.data
+      var stockArrayToday = stockArray[0];
+      console.log("The stockprice of today is $", stockArrayToday[1]);
+      var dataTweet = "The stockprice of today is " + stockArrayToday[1].toString();
+      T.post('statuses/update', {status: dataTweet}, function(err, data, response) {
+        try {
+          console.log(data);
+        }
+        catch {
+          console.log(data);
+        }
+      });
+    });
+}
+
+//Send a tweet every 1 minute
+setInterval(function() {
+    try {
+      postQuote();
+    }
+   catch (e) {
+      console.log(e);
+    }
+  },60000);
+
+postStock();
