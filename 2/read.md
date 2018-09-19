@@ -4,9 +4,9 @@ In April 2018 OpenAI has launched Gym where algorithms can be developed and comp
 
 In this project a bot-game will be developed by using Universe, where the bot learns to race by self-play.
 
-## Goals
-- How to make a single AI-agent
-- How AI works in game technology, specifically reinforcement learning
+## Learning goals
+- How to make a single AI-agent?
+- How AI works in game technology, specifically reinforcement learning?
 - What is Docker and how does it work?
 - What is Universe and how does it work?
 
