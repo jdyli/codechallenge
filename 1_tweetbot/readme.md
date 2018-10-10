@@ -1,5 +1,4 @@
 # Tweet bot
-
 The tweet bot is able to send two types of tweets periodically. 
 
 1. Inspirational quotes
@@ -10,8 +9,8 @@ The tweet bot is able to send two types of tweets periodically.
 - How to build a bot?
 - How to work with node.js?
 
-## Run
-node tweetbot.js
+## Commands
+```node tweetbot.js```
 
 ## Technology
 - JavaScript
