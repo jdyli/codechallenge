@@ -6,8 +6,10 @@ There is a set of debtors, where each debtor can have a list of invoices, linked
 ## Learning goals
 - How to make a fast, generic data set?
 
-## Run
+## Commands
+```
 node mockdata.js
+```
 
 ## Technology
 - Javascript
