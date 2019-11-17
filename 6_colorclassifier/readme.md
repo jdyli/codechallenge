@@ -1,5 +1,5 @@
 # Color classifier
-Based on data, a color classifier is created with the use of Google' Tensorflow
+Based on data, a color classifier is created with the use of Google's Tensorflow
 
 ## Learning goals
 - Learn how to build my own classifier with Tensorflow

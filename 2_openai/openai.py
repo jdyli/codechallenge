@@ -1,22 +1,27 @@
 import gym
-import universe  # register the universe environments
+import numpy as np
+    
+class Preprocessing(ObservationWrapper):
 
-env = gym.make('flashgames.NeonRace-v0')
-env.configure(remotes=1)  # automatically creates a local docker container
-observation_n = env.reset() # instantiate proper simulation environment
+  def to_grayscale(img):
+    return np.mean(img, axis=2).astype(np.uint8)
 
-turn = 0
-goLeft = [('KeyEvent', 'ArrowLeft', True), ('KeyEvent', 'ArrowUp', True), ('KeyEvent', 'ArrowRight', False)]
-goRight = [('KeyEvent', 'ArrowLeft', False), ('KeyEvent', 'ArrowUp', True), ('KeyEvent', 'ArrowRight', True)]
-go = [('KeyEvent', 'ArrowUp', True)]
-action = go
+  def downsample(img):
+    return img[::2, ::2]
 
-while True:
-  turn -= -1
-  if turn <= 0:
-    action = go
-    turn = 0
+  def preprocess(img):
+    return to_grayscale(downsample(img))
 
-  action_n = [action for ob in observation_n]  # your agent here
-  observation_n, reward_n, done_n, info = env.step(action_n)
+
+# Create a new environment
+env = preprocess(gym.make('BreakoutDeterministic-v4'))
+# Reset it, returns the starting frame
+frame = env.reset()
+env.render()
+
+is_done = False
+while not is_done:
+  # Perform a random action, returns the new frame, reward and whether the game is over
+  observation, reward, is_done, _ = env.step(env.action_space.sample())
+  #print(reward)
   env.render()

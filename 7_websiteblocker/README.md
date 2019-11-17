@@ -14,3 +14,5 @@ While I was starting to get distracted when studying, I decided to make a websit
 - NodeJS
 - Javascript
 
+## Other sources
+- http://www.tech-faq.com/127-0-0-1.html 
